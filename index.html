@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>شجرة عائلة البراهيم</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/vendor/perfect-scrollbar/perfect-scrollbar.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(to top, #d0f0c0, #ffffff);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .chart { width: 100%; height: auto; direction: rtl; }
+
+    .node {
+      padding: 10px 20px;
+      background-color: #b8e994;
+      border: 2px solid #2e7d32;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      color: #1b5e20;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .node:hover {
+      transform: scale(1.1);
+      background-color: #a3d977;
+    }
+
+    h1 {
+      color: #2e7d32;
+      font-size: 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>شجرة عائلة البراهيم</h1>
+  <div id="tree-leaf" class="chart"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/vendor/raphael.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+  <script>
+    var chart_config = {
+      chart: {
+        container: "#tree-leaf",
+        levelSeparation: 70,
+        siblingSeparation: 50,
+        subTeeSeparation: 40,
+        nodeAlign: "BOTTOM",
+        connectors: {
+          type: 'curve',
+          style: {
+            "stroke": "#4caf50",
+            "arrow-end": "oval-wide-long"
+          }
+        },
+        node: {
+          HTMLclass: 'node'
+        }
+      },
+      nodeStructure: {
+        text: { name: "الجد إبراهيم" },
+        children: [
+          {
+            text: { name: "أحمد" },
+            children: [
+              { text: { name: "سعود" } },
+              { text: { name: "مالك" } }
+            ]
+          },
+          {
+            text: { name: "محمد" },
+            children: [
+              { text: { name: "سلمان" } },
+              { text: { name: "يوسف" } }
+            ]
+          }
+        ]
+      }
+    };
+
+    new Treant(chart_config);
+  </script>
+</body>
+</html>
