@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>شجرة عائلة البراهيم</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/vendor/perfect-scrollbar/perfect-scrollbar.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+    .chart { width: 100%; height: auto; direction: rtl; }
+    .node {
+      padding: 10px;
+      border: 2px solid #4CAF50;
+      border-radius: 30px;
+      background-color: #d4edda;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      color: #2f5132;
+    }
+    .Treant > .node { white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+  <h1>شجرة عائلة البراهيم</h1>
+  <div id="tree-simple" class="chart"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/vendor/raphael.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/treant-js/1.0/Treant.min.js"></script>
+  <script>
+    var chart_config = {
+      chart: {
+        container: "#tree-simple",
+        levelSeparation: 60,
+        siblingSeparation: 50,
+        subTeeSeparation: 30,
+        nodeAlign: "BOTTOM",
+        connectors: {
+          type: 'curve'
+        },
+        node: {
+          HTMLclass: 'node'
+        }
+      },
+      nodeStructure: {
+        text: { name: "إبراهيم" },
+        children: [
+          {
+            text: { name: "أحمد" },
+            children: [
+              { text: { name: "سعود" } },
+              { text: { name: "مالك" } }
+            ]
+          },
+          {
+            text: { name: "محمد" },
+            children: [
+              { text: { name: "سلمان" } },
+              { text: { name: "يوسف" } }
+            ]
+          }
+        ]
+      }
+    };
+
+    new Treant(chart_config);
+  </script>
+</body>
+</html>
